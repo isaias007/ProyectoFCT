@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Creacion de un usuario a mano por si acaso
+Creacion del formulario de agregado para alumno
 
 @stop

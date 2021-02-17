@@ -3,8 +3,8 @@
 @section('content')
 
 <form method="POST">
-@csrf
-@method('PUT')
+    @csrf
+    @method('PUT')
     <main>
         <div class="row">
             <div class="col-md-12">
@@ -22,21 +22,36 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach( $arrayAlumnos as $key => $Alumnos )
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>Desarrollo de aplicaciones web</td>
-                                <td>markotto@email.com</td>
-                                <td>692054063</td>
-                                <td class="text-center"><input type="checkbox" name="autorizacion" id="autorizacion"></td>
+                                <th>{{$Alumnos->id}} </th>
+                                <td>{{$Alumnos->nombre}}</td>
+                                <td>{{$Alumnos->apellidos}}</td>
+                                <td>{{$Alumnos->curso}}</td>
+                                <td>{{$Alumnos->email}}</td>
+                                <td>{{$Alumnos->telefono}}</td>
+                                <td class="text-center"><input type="checkbox"></td>
                             </tr>
                         </tbody>
-                        
+                        @endforeach
                     </table>
                     <button type="submit" class="btn btn-dark">Actualizar</button>
                 </div>
             </div>
+        </div>
+        <div class="row">
+
+            <div class="col-5">
+
+            </div>
+            <div class="col-2">
+                {{$arrayAlumnos->links()}}
+            </div>
+
+            <div class="col-5">
+
+            </div>
+
         </div>
     </main>
 </form>

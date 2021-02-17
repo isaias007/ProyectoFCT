@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\alumnosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,14 +21,10 @@ use Illuminate\Support\Facades\Route;
 // Rutas de la aplicacion 
 
 
-Route::get('/', function(){
-    return view('alumnos/mostrado');
-});
+Route::get('/', [alumnosController::class, 'getMostrado']);
 
 Route::get('/crear', function(){
     return view('alumnos/creacion');
 });
 
-Route::get('/check', function(){
-    return view('alumnos/mostradoForm');
-});
+Route::get('/check', [alumnosController::class, 'getMostradoForm']);
