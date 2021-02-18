@@ -19,6 +19,8 @@ class AlumnoFactory extends Factory
      *
      * @return array
      */
+
+    //Factory para crear varios alumnos para el desarrollo
     public function definition()
     {
         return [
@@ -26,13 +28,13 @@ class AlumnoFactory extends Factory
 
             'apellidos'=> $this->faker->name,
 
-            'curso' => "Desarrolo de Aplicaciones Web",
+            'curso' => "Comercio y Marketing",
 
             'email' => $this->faker->unique()->safeEmail,
 
-            'telefono' => '692054063',
+            'telefono' => '785478845',
 
-            'autorizacion' => 0
+            'autorizacion' => 1
 
         ];
     }

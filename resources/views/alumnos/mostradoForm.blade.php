@@ -30,7 +30,13 @@
                                 <td>{{$Alumnos->curso}}</td>
                                 <td>{{$Alumnos->email}}</td>
                                 <td>{{$Alumnos->telefono}}</td>
-                                <td class="text-center"><input type="checkbox"></td>
+                                <td class="text-center">
+                                @if($Alumnos->autorizacion==false)
+                                {{ Form::checkbox('autorizacion', 'yes', false) }}
+                                @else($Alumnos->autorizacion==true)
+                                {{ Form::checkbox('autorizacion', 'yes', true) }}
+                                @endif
+                                </td>
                             </tr>
                         </tbody>
                         @endforeach

@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+    //LLamamiento al factory y borrado de los registros de la tabla ya puestos
     public function run()
     {
         DB::table('alumnos')->delete();

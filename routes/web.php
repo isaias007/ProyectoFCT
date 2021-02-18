@@ -20,11 +20,16 @@ use Illuminate\Support\Facades\Route;
 
 // Rutas de la aplicacion 
 
-
+//Ruta del mostrado sin formulario (Ivan)
 Route::get('/', [alumnosController::class, 'getMostrado']);
 
+//Ruta del mostrado pero con formulario para los profesores
+Route::get('/check', [alumnosController::class, 'getMostradoForm']);
+
+//Ruta del put para la actualizacion
+Route::put('/check/{id}',[alumnosController::class, 'actualizarAutorizacion']);
+
+//Ruta para la creacion de un alumno individualmente
 Route::get('/crear', function(){
     return view('alumnos/creacion');
 });
-
-Route::get('/check', [alumnosController::class, 'getMostradoForm']);
