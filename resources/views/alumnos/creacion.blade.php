@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <form action="POST">
+                <form action="/crear" method="POST">
                     @csrf
                     <div class="form-group mb-2">
                         <label for="nombre">Nombre</label>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-check mb-2">
                         <label for="check">Autorizacion</label>
-                        <input class="form-check-input position-static" type="checkbox" id="autorizacion" name="autorizacion">
+                        <input class="form-check-input position-static" type="checkbox" id="autorizacion" name="autorizacion" value="1">
                     </div>
                     <button type="submit" class="btn btn-dark">Crear</button>
                 </form>

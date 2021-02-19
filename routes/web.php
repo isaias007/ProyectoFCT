@@ -27,9 +27,10 @@ Route::get('/', [alumnosController::class, 'getMostrado']);
 Route::get('/check', [alumnosController::class, 'getMostradoForm']);
 
 //Ruta del put para la actualizacion
-Route::put('/check/{id}',[alumnosController::class, 'actualizarAutorizacion']);
+Route::put('/check',[alumnosController::class, 'actualizarAutorizacion']);
 
-//Ruta para la creacion de un alumno individualmente
-Route::get('/crear', function(){
-    return view('alumnos/creacion');
-});
+//Ruta para el formulario de creacion de un alumno individualmente
+Route::get('/crear',[alumnosController::class, 'getCreacion']);
+
+//Ruta para la creaciuon del alumno
+Route::post('/crear',[alumnosController::class, 'creacionIndividual']);

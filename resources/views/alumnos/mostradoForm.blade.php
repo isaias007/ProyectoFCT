@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form method="POST">
+<form action="/check" method="POST">
     @csrf
     @method('PUT')
     <main>

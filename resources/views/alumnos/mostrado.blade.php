@@ -18,14 +18,31 @@
                     </thead>
                     <tbody>
                         @foreach( $arrayAlumnos as $key => $Alumnos )
+                        
+                        
+                        @if($Alumnos->autorizacion==false)
                         <tr>
-                            <th>{{$Alumnos->id}} </th>
+                            <th class="bg bg-danger">{{$Alumnos->id}} </th>
                             <td>{{$Alumnos->nombre}}</td>
                             <td>{{$Alumnos->apellidos}}</td>
                             <td>{{$Alumnos->curso}}</td>
                             <td>{{$Alumnos->email}}</td>
                             <td>{{$Alumnos->telefono}}</td>
                         </tr>
+                        @else($Alumnos->autorizacion==true)
+                        <tr>
+                            <th class="bg bg-success">{{$Alumnos->id}} </th>
+                            <td>{{$Alumnos->nombre}}</td>
+                            <td>{{$Alumnos->apellidos}}</td>
+                            <td>{{$Alumnos->curso}}</td>
+                            <td>{{$Alumnos->email}}</td>
+                            <td>{{$Alumnos->telefono}}</td>
+                        </tr>
+                        @endif
+
+
+
+                        
                     </tbody>
                     @endforeach
                 </table>
