@@ -31,14 +31,12 @@ class alumnosController extends Controller
 
 
     //Funcion para actualizar las autorizaciones
-    public function actualizarAutorizacion(Request $request, $id)
+    public function actualizarAutorizacion(Request $request)
     {
 
-        $alumno = Alumno::find($id);
+        Alumno::where('autorizacion', '!=', $request->boolean('autorizacion'))
+            ->update(['autorizacion' => $request->boolean('autorizacion')]);
 
-        $alumno->autorizacion = $request->input('autorizacion');
-
-        $alumno->save();
 
         return redirect('/check');
     }

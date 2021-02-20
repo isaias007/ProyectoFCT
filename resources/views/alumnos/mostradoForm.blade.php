@@ -6,45 +6,60 @@
     @csrf
     @method('PUT')
     <main>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-wrap">
-                    <table class="table table-bordered table-primary  table-hover">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>Curso</th>
-                                <th>Email</th>
-                                <th>Telefono</th>
-                                <th>Autorizacion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach( $arrayAlumnos as $key => $Alumnos )
-                            <tr>
-                                <th>{{$Alumnos->id}} </th>
-                                <td>{{$Alumnos->nombre}}</td>
-                                <td>{{$Alumnos->apellidos}}</td>
-                                <td>{{$Alumnos->curso}}</td>
-                                <td>{{$Alumnos->email}}</td>
-                                <td>{{$Alumnos->telefono}}</td>
-                                <td class="text-center">
-                                @if($Alumnos->autorizacion==false)
-                                {{ Form::checkbox('autorizacion', 'yes', false) }}
-                                @else($Alumnos->autorizacion==true)
-                                {{ Form::checkbox('autorizacion', 'yes', true) }}
-                                @endif
-                                </td>
-                            </tr>
-                        </tbody>
-                        @endforeach
-                    </table>
-                    <button type="submit" class="btn btn-dark">Actualizar</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-wrap">
+                        <table class="table table-bordered table-primary  table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Curso</th>
+                                    <th>Email</th>
+                                    <th>Telefono</th>
+                                    <th>Autorizacion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach( $arrayAlumnos as $key => $Alumnos )
+                                <tr>
+                                    <th>{{$Alumnos->id}} </th>
+                                    <td>{{$Alumnos->nombre}}</td>
+                                    <td>{{$Alumnos->apellidos}}</td>
+                                    <td>{{$Alumnos->curso}}</td>
+                                    <td>{{$Alumnos->email}}</td>
+                                    <td>{{$Alumnos->telefono}}</td>
+                                    <td class="text-center">
+                                        @if($Alumnos->autorizacion==false)
+                                        {{ Form::checkbox('autorizacion', 'yes', false) }}
+                                        @else($Alumnos->autorizacion==true)
+                                        {{ Form::checkbox('autorizacion', 'yes', true) }}
+                                        @endif
+                                    </td>
+                                </tr>
+                            </tbody>
+                            @endforeach
+                        </table>
+                        <form method="GET" action="/check">
+                            <select class="form-select" name="filtrado" id="filtrado">
+                                <option value="Desarrollo de aplicaciones web">Desarrollo de aplicaciones web</option>
+                                <option value="Auxiliar de enfermeria">Auxiliar de enfermeria</option>
+                                <option value="Comercio y Marketing">Comercio y Marketing</option>
+                            </select>
+
+                            <button type="submit" class="mt-3 mb-3 col col-3 form-inline btn btn-secondary">Filtrar</button>
+                        </form>
+
+                        <button type="submit" class="mt-3 mb-3 col col-3 form-inline btn btn-dark">Actualizar</button>
+
+                    </div>
                 </div>
             </div>
+
         </div>
+
         <div class="row">
 
             <div class="col-5">
