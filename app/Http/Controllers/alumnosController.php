@@ -39,22 +39,21 @@ class alumnosController extends Controller
                 $array[] = $auto;
         }
 
+        $alumnos = Alumno::all();
+        for($i = 0; $i < count($alumnos); $i++){
+            if($alumnos[$i]->autorizacion == 1 && !in_array($alumnos[$i]->id, $array)){
+                DB::table('alumnos')
+                ->where('id', $alumnos[$i]->id)
+                ->update(['autorizacion' => 0]);
+            }
+        }
+
         for ($i = 0; $i < count($array); $i++) {
 
             DB::table('alumnos')
             ->where('id', $array[$i])
             ->update(['autorizacion' => 1]);
                 
-        }
-
-        $alumnos = Alumno::all();
-
-        for($i = 0; $i < count($alumnos); $i++){
-            if(in_array($alumnos[$i]->id, $array) == false){
-                DB::table('alumnos')
-                ->where('id', $alumnos[$i]->id)
-                ->update(['autorizacion' => 0]);
-            }
         }
 
 
