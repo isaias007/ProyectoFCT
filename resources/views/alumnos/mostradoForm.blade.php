@@ -33,9 +33,9 @@
                                     <td>{{$Alumnos->telefono}}</td>
                                     <td class="text-center">
                                         @if($Alumnos->autorizacion==false)
-                                        {{ Form::checkbox('autorizacion', 'yes', false) }}
+                                        <input class="form-check-input position-static" type="checkbox" id="autorizacion" name="autorizacion[{{$Alumnos->id}}]">
                                         @else($Alumnos->autorizacion==true)
-                                        {{ Form::checkbox('autorizacion', 'yes', true) }}
+                                        <input class="form-check-input position-static" type="checkbox" checked id="autorizacion" name="autorizacion[{{$Alumnos->id}}]">
                                         @endif
                                     </td>
                                 </tr>

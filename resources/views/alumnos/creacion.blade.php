@@ -30,7 +30,7 @@
                     <div class="form-check mb-2">
                         <label for="check">Autorizacion</label>
                         <input class="form-check-input position-static" type="checkbox" id="autorizacion" name="autorizacion" value="1">
-                    </div>
+                    </div> 
                     <button type="submit" class="btn btn-dark">Crear</button>
                 </form>
             </div>
