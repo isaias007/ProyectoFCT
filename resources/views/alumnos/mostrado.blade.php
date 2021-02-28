@@ -46,6 +46,7 @@
                     </tbody>
                     @endforeach
                 </table>
+                <a class="btn btn-warning" href="/generate-pdf">Generar el pdf</a>
             </div>
         </div>
     </div>

@@ -18,6 +18,7 @@ class CreateTableAlumnos extends Migration
             $table->string("nombre", 100);
             $table->string("apellidos", 100);
             $table->string("curso");
+            $table->string("ciclo");
             $table->string("email")->unique();
             $table->string("telefono", 12);
             $table->boolean("autorizacion");

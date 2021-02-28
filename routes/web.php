@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\alumnosController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,6 @@ Route::get('/crear',[alumnosController::class, 'getCreacion']);
 
 //Ruta para la creaciuon del alumno
 Route::post('/crear',[alumnosController::class, 'creacionIndividual']);
+
+//PDF
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
