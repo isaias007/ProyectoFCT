@@ -1,5 +1,16 @@
 <nav class="navbar navbar navbar-dark bg-primary">
     <a class="navbar-brand" href="/" alt=""><img src="{{asset('images/logoMajada.png')}}" style="margin-left: 20px; width: 70px; height: 50px;" alt="Logo de majada"></a>
+    @if(Request::is('check'))
+    <form class='form  col col-5' action="{{ url('/check') }}" method="GET">
+
+        <input type="search" class="form-control " name="ciclo" id="ciclo" placeholder="Buscar por ciclo" value="{{$ciclo}}">
+
+        <button style="display: none;" class="btn btn-secondary" type="submit">Buscar</button>
+        
+    </form>
+    
+    @endif
+
     <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

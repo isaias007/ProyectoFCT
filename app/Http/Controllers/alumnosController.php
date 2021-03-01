@@ -18,21 +18,6 @@ class alumnosController extends Controller
     public function getMostradoForm(Request $request)
     {
 
-        //PREGUNTAR AL PROFESOR
-
-        // $ciclo = trim($request->input('filtrado'));
-
-        // $arrayAlumnos = DB::table('alumnos')
-
-        // ->select()
-
-        // ->where('ciclo','LIKE','%'.$ciclo.'%')->paginate(10);
-
-        // dd($request->get('filtrado'));
-
-        //PREGUNTAR AL PROFESOR
-
-
 
         $ciclo = trim($request->input('ciclo')); //Lo cogemos por URL (método GET)
 
@@ -40,9 +25,10 @@ class alumnosController extends Controller
 
             ->select()
 
-            ->where('nombre', 'LIKE', '%' . $ciclo . '%')->paginate(10);
+            ->where('ciclo', 'LIKE', '%' . $ciclo . '%')->paginate(10);
 
 
+    
         return view('alumnos/mostradoForm', compact('arrayAlumnos', 'ciclo'));
     }
 
@@ -67,16 +53,25 @@ class alumnosController extends Controller
         }
 
         $alumnos = Alumno::all();
-        for ($i = 0; $i < count($alumnos); $i++) {
+
+        $rango = explode(",", $request->input('rangoAlumnos'));
+
+        
+        // dd($rango);
+        for ($i = $rango[0]; $i <= $rango[0] + 10; $i++) {
+            dd($alumnos[$i]);
             if ($alumnos[$i]->autorizacion == 1 && !in_array($alumnos[$i]->id, $array)) {
+                dd($alumnos);
                 DB::table('alumnos')
                     ->where('id', $alumnos[$i]->id)
                     ->update(['autorizacion' => 0]);
             }
         }
 
-        for ($i = 0; $i < count($array); $i++) {
+        dd($array);
+        
 
+        for ($i = 0; $i < count($array); $i++) {
             DB::table('alumnos')
                 ->where('id', $array[$i])
                 ->update(['autorizacion' => 1]);

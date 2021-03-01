@@ -20,34 +20,39 @@ class PDFController extends Controller
     public function generatePDF()
     {
 
-        $arrayAlumnos = Alumno::where('autorizacion', 1)->get();
+        // $arrayAlumnos = Alumno::where('autorizacion', 1)->get();
 
-        $Nombres = "Nombres = ";
-        $Apellidos = "Apellidos =";
+        // $Nombres = "Nombres = ";
+        // $Apellidos = "Apellidos =";
 
-        for($i = 0; $i<count($arrayAlumnos); $i++){
+        // for($i = 0; $i<count($arrayAlumnos); $i++){
 
-            $var1 = $arrayAlumnos[$i]->nombre;
-            $var2 = $arrayAlumnos[$i]->apellidos;
+        //     $var1 = $arrayAlumnos[$i]->nombre;
+        //     $var2 = $arrayAlumnos[$i]->apellidos;
 
-            $Nombres = $Nombres . "|||" .  $var1;
-            $Apellidos = $Apellidos . "|||" .  $var2;
+        //     $Nombres = $Nombres . "|||" .  $var1;
+        //     $Apellidos = $Apellidos . "|||" .  $var2;
 
-            $var1 = "";
-            $var2 = "";
+        //     $var1 = "";
+        //     $var2 = "";
 
-        }
+        // }
+
+        $arrayAlumnos = DB::table('alumnos')
+
+        ->select()
+        ->where('autorizacion','=',1)->get();
 
 
 
         $data = [
             'title' => 'Estos son los alumnos que dieron su autorizacion',
             'date' => date('m/d/Y'),
-            'Nombres'=>$Nombres,
-            'Apellidos'=>$Apellidos
+            // 'Nombres'=>$Nombres,
+            // 'Apellidos'=>$Apellidos
         ];
           
-        $pdf = PDF::loadView('alumnos/pdfAlumnos', $data);
+        $pdf = PDF::loadView('alumnos/pdfAlumnos', ["Datos"=>$data, "Alumnos"=> $arrayAlumnos]);
     
         return $pdf->download('AlumnosAutrorizados.pdf');
     }

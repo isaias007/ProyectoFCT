@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // DB::table('alumnos')->delete();
-        Alumno::factory()->count(5)->create();
+        Alumno::factory()->count(10)->create();
        
     }
 }

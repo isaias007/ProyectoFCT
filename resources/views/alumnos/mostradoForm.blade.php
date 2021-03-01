@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="/check" method="POST">
+<form action="/check" method="POST" id="principal">
     @csrf
     @method('PUT')
     <main>
@@ -24,6 +24,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <input type="hidden" name="rangoAlumnos" value="{{ $arrayAlumnos[0]->id }}, {{$arrayAlumnos[count($arrayAlumnos)-1]->id}}">
                                 @foreach( $arrayAlumnos as $key => $Alumnos )
                                 <tr>
                                     <th>{{$Alumnos->id}} </th>
@@ -34,38 +35,22 @@
                                     <td>{{$Alumnos->email}}</td>
                                     <td>{{$Alumnos->telefono}}</td>
                                     <td class="text-center">
-                                        @if($Alumnos->autorizacion==false)
-                                        <input class="form-check-input position-static" type="checkbox" id="autorizacion" name="autorizacion[{{$Alumnos->id}}]">
-                                        @else($Alumnos->autorizacion==true)
+                                        @if($Alumnos->autorizacion==true)
                                         <input class="form-check-input position-static" type="checkbox" checked id="autorizacion" name="autorizacion[{{$Alumnos->id}}]">
+                                        @else($Alumnos->autorizacion==false)
+                                        <input class="form-check-input position-static" type="checkbox" id="autorizacion" name="autorizacion[{{$Alumnos->id}}]">
                                         @endif
                                     </td>
                                 </tr>
+                                @endforeach
+
                             </tbody>
-                            @endforeach
                         </table>
-                        <!-- <form method="GET" action="{{ url('/check') }}">
-                            <select class="form-select" name="filtrado" id="filtrado">
-                                <option value="Desarrollo de aplicaciones web">Desarrollo de aplicaciones web</option>
-                                <option value="Auxiliar de enfermeria">Auxiliar de enfermeria</option>
-                                <option value="Comercio y Marketing">Comercio y Marketing</option>
-                            </select>
-
-                            <button type="submit" class="mt-3 mb-3 col col-3 form-inline btn btn-secondary">Filtrar</button>
-                        </form> -->
-
-
-                        <form class='form-inline' action="{{ url('/check') }}" method="GET">
-
-                            <input type="search" class="form-control " name="ciclo" id="ciclo" placeholder="Buscar por ciclo" value="{{$ciclo}}">
-
-                            <button class="btn btn-secondary" type="submit">Buscar</button>
-
-                        </form>
+                        
 
 
 
-                        <button type="submit" class="mt-3 mb-3 col col-3 form-inline btn btn-dark">Actualizar</button>
+                        <button type="submit" id="actualizar" disabled class="mt-3 mb-3 col col-3 form-inline btn btn-dark">Confirmado</button>
 
                     </div>
                 </div>
@@ -89,5 +74,7 @@
         </div>
     </main>
 </form>
+
+
 
 @stop
