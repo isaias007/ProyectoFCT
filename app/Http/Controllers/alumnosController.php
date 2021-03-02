@@ -28,7 +28,7 @@ class alumnosController extends Controller
             ->where('ciclo', 'LIKE', '%' . $ciclo . '%')->paginate(10);
 
 
-    
+
         return view('alumnos/mostradoForm', compact('arrayAlumnos', 'ciclo'));
     }
 
@@ -44,32 +44,32 @@ class alumnosController extends Controller
 
     //Funcion para actualizar las autorizaciones
     public function actualizarAutorizacion(Request $request)
-
-    //ERROR PREGUNTAR A SAMU
-
     {
         foreach ($request->input('autorizacion') as $auto => $value) {
             $array[] = $auto;
         }
 
+
+        // dd(Alumno::where('autorizacion', '!=', $request->boolean('autorizacion'))->get());
+
+
         $alumnos = Alumno::all();
 
         $rango = explode(",", $request->input('rangoAlumnos'));
 
-        
+
         // dd($rango);
-        for ($i = $rango[0]; $i <= $rango[0] + 10; $i++) {
-            dd($alumnos[$i]);
+        for ($i = 0; $i < count($alumnos); $i++) {
             if ($alumnos[$i]->autorizacion == 1 && !in_array($alumnos[$i]->id, $array)) {
-                dd($alumnos);
                 DB::table('alumnos')
                     ->where('id', $alumnos[$i]->id)
+                    ->where('id', '>=', $rango[0])
+                    ->where('id', '<=', $rango[1])
                     ->update(['autorizacion' => 0]);
             }
         }
 
-        dd($array);
-        
+
 
         for ($i = 0; $i < count($array); $i++) {
             DB::table('alumnos')
@@ -78,12 +78,7 @@ class alumnosController extends Controller
         }
 
 
-
-
-
-        // Alumno::where('autorizacion', '!=', $request->boolean('autorizacion'))
-        //     ->update(['autorizacion' => $request->boolean('autorizacion')]);
-
+        $request->session()->flash('correcto','Alumnos actualizados'); 
 
         return redirect('/check');
     }
