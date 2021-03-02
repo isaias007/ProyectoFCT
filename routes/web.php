@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\alumnosController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\MyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +39,12 @@ Route::post('/crear',[alumnosController::class, 'creacionIndividual']);
 
 //PDF
 Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
+
+
+//Excel
+
+Route::get('importExportView', [MyController::class, 'importExportView']);
+
+Route::get('export', [MyController::class, 'export'])->name('export');
+
+Route::post('import', [MyController::class, 'import'])->name('import');
