@@ -3,6 +3,7 @@
 use App\Http\Controllers\alumnosController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\MyController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,22 +21,32 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+
+//Autenticacion
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
 // Rutas de la aplicacion 
 
 //Ruta del mostrado sin formulario (Ivan)
-Route::get('/', [alumnosController::class, 'getMostrado']);
+Route::get('/home', [alumnosController::class, 'getMostrado']);
 
 //Ruta del mostrado pero con formulario para los profesores
 Route::get('/check', [alumnosController::class, 'getMostradoForm']);
 
 //Ruta del put para la actualizacion
-Route::put('/check',[alumnosController::class, 'actualizarAutorizacion']);
+Route::put('/check', [alumnosController::class, 'actualizarAutorizacion']);
 
 //Ruta para el formulario de creacion de un alumno individualmente
-Route::get('/crear',[alumnosController::class, 'getCreacion']);
+Route::get('/crear', [alumnosController::class, 'getCreacion']);
 
 //Ruta para la creaciuon del alumno
-Route::post('/crear',[alumnosController::class, 'creacionIndividual']);
+Route::post('/crear', [alumnosController::class, 'creacionIndividual']);
 
 //PDF
 Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
