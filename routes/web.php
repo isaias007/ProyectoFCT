@@ -24,38 +24,43 @@ use Illuminate\Support\Facades\Route;
 
 //Autenticacion
 
-Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
+Auth::routes(['verify' => 'true']);
 
 // Rutas de la aplicacion 
 
-//Ruta del mostrado sin formulario (Ivan)
-Route::get('/home', [alumnosController::class, 'getMostrado']);
+Route::group(['middleware' => 'verified'], function () {
 
-//Ruta del mostrado pero con formulario para los profesores
-Route::get('/check', [alumnosController::class, 'getMostradoForm']);
+    //Ruta del mostrado sin formulario (Ivan)
 
-//Ruta del put para la actualizacion
-Route::put('/check', [alumnosController::class, 'actualizarAutorizacion']);
-
-//Ruta para el formulario de creacion de un alumno individualmente
-Route::get('/crear', [alumnosController::class, 'getCreacion']);
-
-//Ruta para la creaciuon del alumno
-Route::post('/crear', [alumnosController::class, 'creacionIndividual']);
-
-//PDF
-Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
+    Route::get('/home', [alumnosController::class, 'getMostrado']);
+    
 
 
-//Excel
 
-Route::get('importExportView', [MyController::class, 'importExportView']);
+    //Ruta del mostrado pero con formulario para los profesores
+    Route::get('/check', [alumnosController::class, 'getMostradoForm'])->middleware(['password.confirm']);;
 
-Route::get('export', [MyController::class, 'export'])->name('export');
+    //Ruta del put para la actualizacion
+    Route::put('/check', [alumnosController::class, 'actualizarAutorizacion']);
 
-Route::post('import', [MyController::class, 'import'])->name('import');
+    //Ruta para el formulario de creacion de un alumno individualmente
+    Route::get('/crear', [alumnosController::class, 'getCreacion'])->middleware(['password.confirm']);;
+
+    //Ruta para la creaciuon del alumno
+    Route::post('/crear', [alumnosController::class, 'creacionIndividual']);
+
+    //PDF
+    Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
+
+
+    //Excel
+
+    Route::get('importExportView', [MyController::class, 'importExportView']);
+
+    Route::get('export', [MyController::class, 'export'])->name('export');
+
+    Route::post('import', [MyController::class, 'import'])->name('import');
+});
