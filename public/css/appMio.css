@@ -1,0 +1,13 @@
+.form-check-input:checked {
+  background-color: black
+}
+
+.btn-1{
+  color: white;
+  background-color: rgb(240, 91, 23);
+}
+
+.btn-2{
+  color: white;
+  background-color: rgb(240, 4, 4);
+}

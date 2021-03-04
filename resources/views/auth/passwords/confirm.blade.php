@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -29,7 +29,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 m-auto">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-1">
                                     {{ __('Confirm Password') }}
                                 </button>
     

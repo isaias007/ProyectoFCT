@@ -25,9 +25,11 @@
             <li class="nav-item ml-auto mr-3">
                 <a class="nav-link" href="/crear">Agregacion de alumno en la base de datos</a>
             </li>
-            <li class="nav-item ml-auto mr-3">
-                
-                <a href="" data-target="#modal-logOut" data-toggle="modal" class="btn btn-secondary ml-2">LogOut</a>
+            <li class="mt-3 nav-item ml-auto mr-3">
+
+                <a href="{{ url('/users') }}" class="btn btn-1 ml-2">Usuarios</a>
+                <a href="{{ url('/roles') }}" class="btn btn-1 ml-2">Roles</a>
+                <a href="" data-target="#modal-logOut" data-toggle="modal" class="btn btn-2 ml-2">LogOut</a>
 
             </li>
 

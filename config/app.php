@@ -165,6 +165,8 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         //EXEL
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        //Permisos
+        Spatie\Permission\PermissionServiceProvider::class,
 
         /*
          * Package Service Providers...

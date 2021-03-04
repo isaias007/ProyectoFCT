@@ -6,7 +6,7 @@ use App\Models\Alumno;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class alumnosController extends Controller
+class AlumnosController extends Controller
 {
 
     //Funcion para mostrar solo 10 alumnos en la vista de mostrado que solo tendra acceso Ivan

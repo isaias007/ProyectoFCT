@@ -18,7 +18,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 
 
-class MyController extends Controller
+class CSVController extends Controller
 
 {
 

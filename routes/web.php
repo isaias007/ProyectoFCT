@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\alumnosController;
+use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\PDFController;
-use App\Http\Controllers\MyController;
+use App\Http\Controllers\CSVController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,32 +37,40 @@ Route::group(['middleware' => 'verified'], function () {
 
     //Ruta del mostrado sin formulario (Ivan)
 
-    Route::get('/home', [alumnosController::class, 'getMostrado']);
+    Route::get('/home', [AlumnosController::class, 'getMostrado']);
     
-
-
-
     //Ruta del mostrado pero con formulario para los profesores
-    Route::get('/check', [alumnosController::class, 'getMostradoForm'])->middleware(['password.confirm']);;
+    Route::get('/check', [AlumnosController::class, 'getMostradoForm'])->middleware(['password.confirm']);;
 
     //Ruta del put para la actualizacion
-    Route::put('/check', [alumnosController::class, 'actualizarAutorizacion']);
+    Route::put('/check', [AlumnosController::class, 'actualizarAutorizacion']);
 
     //Ruta para el formulario de creacion de un alumno individualmente
-    Route::get('/crear', [alumnosController::class, 'getCreacion'])->middleware(['password.confirm']);;
+    Route::get('/crear', [AlumnosController::class, 'getCreacion'])->middleware(['password.confirm']);;
 
     //Ruta para la creaciuon del alumno
-    Route::post('/crear', [alumnosController::class, 'creacionIndividual']);
+    Route::post('/crear', [AlumnosController::class, 'creacionIndividual']);
 
     //PDF
     Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
 
-
     //Excel
 
-    Route::get('importExportView', [MyController::class, 'importExportView']);
+    Route::get('importExportView', [CSVController::class, 'importExportView']);
 
-    Route::get('export', [MyController::class, 'export'])->name('export');
+    Route::get('export', [CSVController::class, 'export'])->name('export');
 
-    Route::post('import', [MyController::class, 'import'])->name('import');
+    Route::post('import', [CSVController::class, 'import'])->name('import');
+});
+
+
+
+
+
+Route::group(['middleware' => ['auth']], function() {
+
+    Route::resource('roles', RoleController::class);
+
+    Route::resource('users', UserController::class);
+
 });

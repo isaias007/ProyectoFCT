@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -53,7 +53,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-1">
                                     {{ __('Login') }}
                                 </button>
 
@@ -84,14 +84,14 @@
                     <!-- Login Form -->
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <input type="email"id="email"  class="fadeIn third @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input type="email" id="email" class="fadeIn third @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         <input id="password" type="password" class="fadeIn third @error('password') is-invalid @enderror" name="password" placeholder="Contraseña" required autocomplete="current-password">
-                        <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                        <button type="submit" class="btn btn-1">
+                            {{ __('Login') }}
                         </button>
 
                         <div class="" id="formFooter">
-                            <a class="underlineHover p-3" href="#">Forgot Password?</a>
+                            <a class="underlineHover p-3" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
                             <a class="underlineHover p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </div>
                     </form>
