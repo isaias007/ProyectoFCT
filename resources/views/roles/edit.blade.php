@@ -85,7 +85,7 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
-        <button type="submit" class="btn btn-warning">Submit</button>
+        <button class="btn btn-warning">Submit</button>
 
     </div>
 

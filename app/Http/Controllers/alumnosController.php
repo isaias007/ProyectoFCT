@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\DB;
 class AlumnosController extends Controller
 {
 
+
+    public function getHome(){
+
+        return view('alumnos/home');
+    }
+
     //Funcion para mostrar solo 10 alumnos en la vista de mostrado que solo tendra acceso Ivan
     public function getMostrado()
     {
@@ -20,13 +26,17 @@ class AlumnosController extends Controller
 
 
         $ciclo = trim($request->input('ciclo')); //Lo cogemos por URL (método GET)
+        $curso = trim($request->input('curso')); //Lo cogemos por URL (método GET)
+
+
 
         $arrayAlumnos = DB::table('alumnos')
 
             ->select()
 
-            ->where('ciclo', 'LIKE', '%' . $ciclo . '%')->paginate(10);
-
+            ->where('ciclo', 'LIKE', '%' . $ciclo . '%')
+            ->where('curso', 'LIKE', '%' . $curso . '%')->paginate(10);
+        
 
 
         return view('alumnos/mostradoForm', compact('arrayAlumnos', 'ciclo'));
@@ -86,23 +96,15 @@ class AlumnosController extends Controller
     //Funcion para crear alumnos individualmente
     public function creacionIndividual(Request $request)
     {
-
-        $aut = null;
-
-        if ($request->input('autorizacion') == null) {
-            $aut = 0;
-        } else {
-            $aut = 1;
-        }
-
         $alumno = new Alumno;
 
         $alumno->nombre = $request->input('nombre');
         $alumno->apellidos = $request->input('apellidos');
         $alumno->curso = $request->input('curso');
+        $alumno->ciclo = $request->input('ciclo');
         $alumno->email = $request->input('email');
         $alumno->telefono = $request->input('telefono');
-        $alumno->autorizacion = $aut;
+        $alumno->autorizacion = 0;
 
         $alumno->save();
 

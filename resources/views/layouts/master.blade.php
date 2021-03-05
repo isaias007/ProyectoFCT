@@ -14,7 +14,7 @@
 </head>
 
 <body class="bg-primary">
-@if(!Request::is('login')&&!Request::is('register')&&!Request::is('verify')&&!Request::is('auth.passwords.confirm')&&!Request::is('auth.passwords.email')&&!Request::is('auth.passwords.reset'))
+@if(!Request::is('login')&&!Request::is('register')&&!Request::is('verify')&&!Request::is('password/confirm')&&!Request::is('password/email')&&!Request::is('password/reset'))
     @include('partials.navbar')
 @endif
     <div class="container">

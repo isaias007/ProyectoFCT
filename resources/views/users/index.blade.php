@@ -79,11 +79,11 @@
 
             <a class="btn btn-success" href="{{ route('users.show',$user->id) }}">Show</a>
 
-            <a class="btn btn-1" href="{{ route('users.edit',$user->id) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
 
             {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
 
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+            <button class="btn btn-danger">Delete</button>
 
             {!! Form::close() !!}
 

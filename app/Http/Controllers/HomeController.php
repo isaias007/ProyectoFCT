@@ -24,10 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return view('home');
+        return view('alumnos/home');
 
         
-        return redirect()->action([AlumnosController::class, 'getMostrado']);
+        // return redirect()->action([AlumnosController::class, 'getMostrado']);
 
     }
 }

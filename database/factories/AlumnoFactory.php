@@ -28,9 +28,9 @@ class AlumnoFactory extends Factory
 
             'apellidos'=> $this->faker->name,
 
-            'curso' => "2020-2021",
+            'curso' => "2018-2019",
 
-            'ciclo' => "Auxiliar de enfermeria",
+            'ciclo' => "Desarrollo de Aplicaciones web",
 
             'email' => $this->faker->unique()->safeEmail,
 

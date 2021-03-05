@@ -35,10 +35,12 @@ Auth::routes(['verify' => 'true']);
 
 Route::group(['middleware' => 'verified'], function () {
 
-    //Ruta del mostrado sin formulario (Ivan)
 
-    Route::get('/home', [AlumnosController::class, 'getMostrado']);
-    
+    Route::get('/home', [AlumnosController::class, 'getHome'] );
+
+    //Ruta del mostrado sin formulario (Ivan)
+    Route::get('/gestion', [AlumnosController::class, 'getMostrado']);
+
     //Ruta del mostrado pero con formulario para los profesores
     Route::get('/check', [AlumnosController::class, 'getMostradoForm'])->middleware(['password.confirm']);;
 
@@ -67,10 +69,9 @@ Route::group(['middleware' => 'verified'], function () {
 
 
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('roles', RoleController::class);
 
     Route::resource('users', UserController::class);
-
 });

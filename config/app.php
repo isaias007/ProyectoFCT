@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,6 +167,8 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         //Permisos
         Spatie\Permission\PermissionServiceProvider::class,
+        //Lenguaje
+        Laraveles\Spanish\SpanishServiceProvider::class,
 
         /*
          * Package Service Providers...

@@ -65,7 +65,7 @@
 
             @can('role-edit')
 
-                <a class="btn btn-1" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
 
             @endcan
 
@@ -73,7 +73,7 @@
 
                 {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
 
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                <button class="btn btn-danger">Delete</button>
 
                 {!! Form::close() !!}
 

@@ -56,7 +56,7 @@
 
             <strong>Name:</strong>
 
-            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'ml-4 form-control')) !!}
 
         </div>
 
@@ -112,7 +112,7 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
-        <button type="submit" class="mt-5 btn btn-warning">Submit</button>
+        <button class="mt-5 btn btn-warning">Submit</button>
 
     </div>
 

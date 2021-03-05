@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<main>
+<!-- <main>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -36,7 +36,44 @@
             </div>
         </div>
     </div>
-</main>
+</main> -->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="Crear Alumno" />
+        </div>
+
+        <!-- Login Form -->
+        <form action="/crear" method="POST">
+            @csrf
+            <div class="form-group mb-2">
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" class="form-control" name="curso" id="curso" placeholder="Curso">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" class="form-control" name="ciclo" id="ciclo" placeholder="ciclo">
+            </div>
+            <div class="form-group mb-2">
+                <input type="email" class="form-control" name="email" id="email" placeholder="email@gmail.com">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono">
+            </div>
+
+            <input type="submit" class="fadeIn fourth" value="Crearlo">
+        </form>
+
+    </div>
+</div>
 
 
 @stop
