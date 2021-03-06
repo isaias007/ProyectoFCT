@@ -28,7 +28,7 @@
         <ul class="navbar-nav ml-auto">
             @can('alumnos-list')
             <li class="nav-item active ml-auto mr-3">
-                <a class="nav-link" href="/">Tabla de alumnos</a>
+                <a class="nav-link" href="/gestion">Tabla de alumnos</a>
             </li>
             @endcan
             @can('alumnos-edit')

@@ -33,7 +33,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <input type="hidden" name="rangoAlumnos" value="{{ $arrayAlumnos[0]->id }}, {{$arrayAlumnos[count($arrayAlumnos)-1]->id}}">
+                                <input type="hidden" name="rangoAlumnos" value="{{ $arrayAlumnos[0]->id ?? '' }}, {{$arrayAlumnos[count($arrayAlumnos)-1]->id ?? '' }}">
                                 @foreach( $arrayAlumnos as $key => $Alumnos )
                                 <tr>
                                     <th>{{$Alumnos->id}} </th>
@@ -55,7 +55,7 @@
 
                             </tbody>
                         </table>
-                        
+
 
 
 
