@@ -16,7 +16,7 @@ use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 
     
-
+//Controlador para los roles de los usuarios
 class RoleController extends Controller
 
 {

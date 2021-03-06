@@ -1,3 +1,6 @@
+
+//Scrip para que no se cambie de pagina si no se han confirmado los datos y que se cambie el boton a aviable cuando haya un cambio en la pagina
+
 let formTabla = document.getElementById("principal");
 console.log(formTabla);
 

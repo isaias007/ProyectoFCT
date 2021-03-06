@@ -11,7 +11,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
 
-
+//Seeder con los permisos que se le daran a los roles
 class PermissionTableSeeder extends Seeder
 
 {
@@ -46,7 +46,9 @@ class PermissionTableSeeder extends Seeder
 
             'alumnos-edit',
 
-            'alumnos-delete'
+            'alumnos-delete',
+
+            'mostrado-home'
 
         ];
 

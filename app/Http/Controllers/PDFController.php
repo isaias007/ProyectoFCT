@@ -7,6 +7,7 @@ use App\Models\Alumno;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+//Controlador para crear pdf
 class PDFController extends Controller
 {
 
@@ -19,39 +20,20 @@ class PDFController extends Controller
 
     public function generatePDF()
     {
-
-        // $arrayAlumnos = Alumno::where('autorizacion', 1)->get();
-
-        // $Nombres = "Nombres = ";
-        // $Apellidos = "Apellidos =";
-
-        // for($i = 0; $i<count($arrayAlumnos); $i++){
-
-        //     $var1 = $arrayAlumnos[$i]->nombre;
-        //     $var2 = $arrayAlumnos[$i]->apellidos;
-
-        //     $Nombres = $Nombres . "|||" .  $var1;
-        //     $Apellidos = $Apellidos . "|||" .  $var2;
-
-        //     $var1 = "";
-        //     $var2 = "";
-
-        // }
-
+        //Seleccionamos en un array los alumnos que queremos que se pasen a la vista
         $arrayAlumnos = DB::table('alumnos')
 
         ->select()
         ->where('autorizacion','=',1)->get();
 
 
-
+        //Definimos un arrat data con algunos datos que nos pueden servir como la fecha 
         $data = [
             'title' => 'Estos son los alumnos que dieron su autorizacion',
             'date' => date('m/d/Y'),
-            // 'Nombres'=>$Nombres,
-            // 'Apellidos'=>$Apellidos
         ];
-          
+        
+        //Y luego cargamos la vista junto con estos arrays para que se descargue un pdf con esos datos
         $pdf = PDF::loadView('alumnos/pdfAlumnos', ["Datos"=>$data, "Alumnos"=> $arrayAlumnos]);
     
         return $pdf->download('AlumnosAutrorizados.pdf');

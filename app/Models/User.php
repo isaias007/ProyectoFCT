@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
+//Modelo de los usuarios (Profesores e Ivan)
 class User extends Authenticatable implements MustVerifyEmail
 
 

@@ -2,6 +2,8 @@
 
 @section('content')
 
+<!-- Flash message para cuando se realiza el CSV -->
+
 @if(Session::has('realizado'))
 
 <div class="alert alert-success"> {{ Session::get('realizado') }}</div>
@@ -25,9 +27,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Tabla de todos los alumnos de el arrayAlumnos -->
                         @foreach( $arrayAlumnos as $key => $Alumnos )
-                        
-                        
+
+
                         @if($Alumnos->autorizacion==false)
                         <tr>
                             <th class="bg bg-danger">{{$Alumnos->id}} </th>
@@ -52,7 +55,7 @@
 
 
 
-                        
+
                     </tbody>
                     @endforeach
                 </table>

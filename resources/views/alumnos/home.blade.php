@@ -2,8 +2,10 @@
 
 @section('content')
 
+<!-- Cartas para elegir ir a una tabla o ir a otra -->
+
 <body>
-@can('alumnos-list')
+    @can('alumnos-list')
     <div class="row text-center">
         <div class="col-sm-6">
             <div class="card">
@@ -24,8 +26,8 @@
             </div>
         </div>
     </div>
-@endcan
-@can('alumnos-delete')
+    @endcan
+    @can('alumnos-delete')
     <div class="row text-center">
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
@@ -39,7 +41,7 @@
         </div>
         <div class="col-sm-3"></div>
     </div>
-@endcan
+    @endcan
 
 
 </body>

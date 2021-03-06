@@ -51,19 +51,14 @@
 </body>
 
 <script>
+    let examinar = document.getElementById("fichero");
 
-let examinar = document.getElementById("fichero");
+    examinar.addEventListener("change", function() {
 
-examinar.addEventListener("change", function(){
-
-document.getElementById("importar").removeAttribute("disabled");
-
-
-})
+        document.getElementById("importar").removeAttribute("disabled");
 
 
-
-
+    })
 </script>
 
 </html>

@@ -2,6 +2,7 @@
 
 @section('content')
 
+<!-- Flash message para cuando se realiza una correcta actualizacion -->
 
 @if(Session::has('correcto'))
 
@@ -20,6 +21,7 @@
                 <div class="col-md-12">
                     <div class="table-wrap">
                         <table class="table table-bordered table-primary  table-hover">
+                            <!-- Tabla de los alumnos del arrayAlumnos con un campo checkbox para actualizar las autorizaciones -->
                             <thead>
                                 <tr>
                                     <th>ID</th>

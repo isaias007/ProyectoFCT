@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+//Este es el FormRquest de la creacion de los alumnos 
 class AlumnoFormRequest extends FormRequest
 {
     /**
@@ -33,7 +34,7 @@ class AlumnoFormRequest extends FormRequest
         ];
     }
 
-
+    //Una funcion para poner un mensaje personalizado en caso de que falle la expresion regular del curso 
     public function messages()
 {
     return [

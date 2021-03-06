@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
+//Factory para crear usuarios a la hora del desarrollo (Creado por laravel y no usado en este desarrollo)
 class UserFactory extends Factory
 {
     /**

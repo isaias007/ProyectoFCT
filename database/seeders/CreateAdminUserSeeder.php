@@ -15,7 +15,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 
-
+//Seeder para crear el usuario de administrador a la hora de crear el primer usuario para poder acceder a la aplicacion
 class CreateAdminUserSeeder extends Seeder
 
 {

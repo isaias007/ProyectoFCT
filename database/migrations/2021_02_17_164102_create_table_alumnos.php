@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+//Migracion de la tabla de alumnos y principal
 class CreateTableAlumnos extends Migration
 {
     /**

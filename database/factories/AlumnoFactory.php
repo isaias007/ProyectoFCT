@@ -5,6 +5,8 @@ namespace Database\Factories;
 use App\Models\Alumno;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+//Factory para crear alumnos a la hora del desarrollo
+
 class AlumnoFactory extends Factory
 {
     /**

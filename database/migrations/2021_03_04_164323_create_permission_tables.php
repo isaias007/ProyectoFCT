@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+//Migracion de la tabla de permisos para los roles
 class CreatePermissionTables extends Migration
 {
     /**

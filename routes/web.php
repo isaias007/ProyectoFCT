@@ -19,13 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-//Autenticacion
-
+//Autenticacion (Login)
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -35,8 +29,8 @@ Auth::routes(['verify' => 'true']);
 
 Route::group(['middleware' => 'verified'], function () {
 
-
-    Route::get('/home', [AlumnosController::class, 'getHome'] );
+    //Ruta para el home despues del login
+    Route::get('/home', [AlumnosController::class, 'getHome']);
 
     //Ruta del mostrado sin formulario (Ivan)
     Route::get('/gestion', [AlumnosController::class, 'getMostrado']);
@@ -57,18 +51,15 @@ Route::group(['middleware' => 'verified'], function () {
     Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
 
     //Excel
-
     Route::get('importExportView', [CSVController::class, 'importExportView']);
-
     Route::get('export', [CSVController::class, 'export'])->name('export');
-
     Route::post('import', [CSVController::class, 'import'])->name('import');
 });
 
 
 
 
-
+//Rutas para el crud de roles y usuarios
 Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('roles', RoleController::class);

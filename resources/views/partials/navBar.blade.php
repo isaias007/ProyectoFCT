@@ -1,5 +1,7 @@
+<!-- Nav Bar -->
 <nav class="navbar navbar navbar-dark bg-primary">
     <a class="navbar-brand" href="/gestion" alt=""><img src="{{asset('images/logoMajada.png')}}" style="margin-left: 20px; width: 70px; height: 50px;" alt="Logo de majada"></a>
+    <!-- Buscador que solo saldra en la vista mostradoForm -->
     @if(Request::is('check'))
     <form class='form  col col-5' action="{{ url('/check') }}" method="GET">
 
@@ -26,6 +28,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+            <!-- Botones gestionados por roles -->
             @can('alumnos-list')
             <li class="nav-item active ml-auto mr-3">
                 <a class="nav-link" href="/gestion">Tabla de alumnos</a>
@@ -55,6 +58,7 @@
         </ul>
     </div>
 </nav>
+<!-- Modal del logOut -->
 @include('modal.logOut')
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

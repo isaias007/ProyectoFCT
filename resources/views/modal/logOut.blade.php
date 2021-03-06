@@ -1,3 +1,4 @@
+<!-- Modal para salir de la aplicacion -->
 <div class="modal" tabindex="-1" role="dialog" id="modal-logOut">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

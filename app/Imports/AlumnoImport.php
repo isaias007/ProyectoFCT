@@ -27,7 +27,8 @@ class AlumnoImport implements ToModel, WithHeadingRow
      * @return \Illuminate\Database\Eloquent\Model|null
 
      */
-
+    
+    //Funcion para importar los alumnos metidos por csv y asi agilizar el proceso de ingreso de usuarios a la base de datos
     public function model(array $row)
 
     {

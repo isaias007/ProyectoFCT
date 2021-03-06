@@ -22,7 +22,7 @@ use Illuminate\Support\Arr;
 
 
 
-
+//Controlador para los usuarios que se crearan
 class UserController extends Controller
 
 {
