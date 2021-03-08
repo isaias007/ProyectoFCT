@@ -32,7 +32,7 @@ class AlumnoFactory extends Factory
 
             'curso' => "2018-2019",
 
-            'ciclo' => "Desarrollo de Aplicaciones web",
+            'ciclo' => "Auxiliar de enfermeria",
 
             'email' => $this->faker->unique()->safeEmail,
 
