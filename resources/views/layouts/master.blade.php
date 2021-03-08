@@ -16,7 +16,7 @@
 <body class="bg-primary">
 <!-- Comprobamos que en las rutas establecidas no se incluye el nav -->
 @if(!Request::is('login')&&!Request::is('register')&&!Request::is('verify')&&!Request::is('password/confirm')&&!Request::is('password/email')&&!Request::is('password/reset'))
-    @include('partials.navbar')
+    @include('partials.navBar')
 @endif
     <div class="container">
 
